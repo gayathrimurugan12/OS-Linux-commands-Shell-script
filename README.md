@@ -41,7 +41,7 @@ s.n. dasgupta
 ```
 ### Display the content of the files
 cat < file1
-## OUTPUT]
+## OUTPUT
 ```
 chanchal singhvi
 c.k. shukla
@@ -59,24 +59,26 @@ lalit chowdury
 s.n. dasgupta
 ```
 
+
 # Comparing Files
+
+
+
 cmp file1 file2
 ## OUTPUT
 ```
 file1 file2 differ: char1,line1
-```
- 
 comm file1 file2
+```
  ## OUTPUT
  ```
  anil aggarwal
-         barun sengupta
-         c.k. shukla
+      barun sengupta
+      c.k. shukla
 chanchal singhvi
 c.k. shukla
-         lalit chowdury
-                 s.n. dasgupta
-
+        lalit chowdury
+                s.n. dasgupta
 ```
  
 diff file1 file2
@@ -93,7 +95,8 @@ diff file1 file2
  s.n. dasgupta
 -sumit chakrobarty
 ```
-#Filters
+
+# Filters
 
 ### Create the following files file11, file22 as follows:
 
@@ -121,6 +124,7 @@ Thi
 
 
 
+
 cut -d "|" -f 1 file22
 ## OUTPUT
 ```
@@ -129,6 +133,8 @@ cut -d "|" -f 1 file22
 1003
 ```
 
+
+
 cut -d "|" -f 2 file22
 ## OUTPUT
 ```
@@ -136,6 +142,7 @@ Ram
 tom
 Joe
 ```
+
 cat < newfile 
 ```
 Hello world
@@ -143,24 +150,22 @@ hello world
 ^d
 ````
 cat > newfile 
-```
 Hello world
 hello world
-grep Hello newfile
-```
-
  
 grep Hello newfile 
 ## OUTPUT
 ```
 Hello world
-
 ```
+
+
+
+
 grep hello newfile 
 ## OUTPUT
 ```
 hello world
-
 ```
 
 
@@ -171,13 +176,15 @@ grep -v hello newfile
 Hello world
 ```
 
+
+
 cat newfile | grep -i "hello"
 ## OUTPUT
 ```
 Hello world
 hello world
-
 ```
+
 
 
 cat newfile | grep -i -c "hello"
@@ -186,12 +193,12 @@ cat newfile | grep -i -c "hello"
 2
 ```
 
-
 grep -R ubuntu /etc
 ## OUTPUT
 ```
 recursion
 ```
+
 
 grep -w -n world newfile   
 ## OUTPUT
@@ -199,6 +206,7 @@ grep -w -n world newfile
 1:Hello world
 2:hello world
 ```
+
 
 cat < newfile 
 ```
@@ -224,6 +232,7 @@ egrep -w 'Hello|hello' newfile
 ```
 Hello world
 hello world
+
 ```
 
 
@@ -232,8 +241,10 @@ egrep -w '(H|h)ello' newfile
 ```
 Hello world
 hello world
-
 ```
+
+
+
 egrep -w '(H|h)ell[a-z]' newfile 
 ## OUTPUT
 ```
@@ -242,12 +253,13 @@ hello world
 ```
 
 
+
+
 egrep '(^hello)' newfile 
 ## OUTPUT
 ```
 hello world
 ```
-
 
 egrep '(world$)' newfile 
 ## OUTPUT
@@ -276,12 +288,12 @@ egrep '[1-9]' newfile
 Linux is world number 1
 ```
 
+
 egrep 'Linux.*world' newfile 
 ## OUTPUT
 ```
 Linux is world number 1
 ```
-
 egrep 'Linux.*World' newfile 
 ## OUTPUT
 ```
@@ -293,13 +305,13 @@ egrep l{2} newfile
 Hello world
 hello world
 ```
-
 egrep 's{1,2}' newfile
 ## OUTPUT 
 ```
 Unix is predecessor
 Linux is best in this World
 ```
+
 cat > file23
 ```
 1001 | Ram | 10000 | HR
@@ -337,8 +349,8 @@ sed  -e 's/Ram/Sita/' file23
 1004 | Sit | 7000 | Dev
 1003 | Joe | 7000 | Developer
 1001 | Sita | 10000 | HR
-
 ```
+
 sed  -e '2s/Ram/Sita/' file23
 ## OUTPUT
 ```
@@ -366,7 +378,6 @@ sed  '/tom/s/5000/6000/' file23
 1001 | Ram | 10000 | HR
 ```
 
-
 sed -n -e '1,5p' file23
 ## OUTPUT
 ```
@@ -377,7 +388,6 @@ sed -n -e '1,5p' file23
 1005 | Sam | 5000 | HR
 ```
 
-
 sed -n -e '2,/Joe/p' file23
 ## OUTPUT
 ```
@@ -387,14 +397,13 @@ sed -n -e '2,/Joe/p' file23
 ```
 
 
-
 sed -n -e '/tom/,/Joe/p' file23
 ## OUTPUT
 ```
 1002 | tom | 5000 | Admin
 1003 | Joe | 7000 | Developer
-
 ```
+
 
 seq 10 
 ## OUTPUT
@@ -409,8 +418,8 @@ seq 10
 8
 9
 10
-
 ```
+
 
 seq 10 | sed -n '4,6p'
 ## OUTPUT
@@ -418,8 +427,8 @@ seq 10 | sed -n '4,6p'
 4
 5
 6
-
 ```
+
 
 seq 10 | sed -n '2,~4p'
 ## OUTPUT
@@ -438,7 +447,6 @@ hello
 3
 ```
 
-
 seq 2 | sed '2i hello'
 ## OUTPUT
 ```
@@ -446,9 +454,9 @@ seq 2 | sed '2i hello'
 hello
 2
 ```
-
 seq 10 | sed '2,9c hello'
 ## OUTPUT
+
 ```
 1
 hello
@@ -465,8 +473,12 @@ $1003 | Joe | 7000 | Developer
 
 
 sed -n '2,4{s/$/*/;p}' file23
-
-
+## OUTPUT
+```
+1001 | Ram | 10000 | HR*
+1002 | tom | 5000 | Admin*
+1003 | Joe | 7000 | Developer*
+```
 #Sorting File content
 cat > file21
 ```
@@ -485,7 +497,6 @@ sort file21
 1004 | Sit | 7000 | Dev
 1005 | Sam | 5000 | HR
 ```
-
 cat > file22
 ```
 1001 | Ram | 10000 | HR
@@ -538,8 +549,8 @@ cat urllist.txt | tr -d ' '
 www.yahoo.com
 www.google.com
 www.mrcet....com
-
- ```
+```
+ 
 cat urllist.txt | tr -d ' ' | tr -s '.'
 ## OUTPUT
 ```
@@ -549,7 +560,7 @@ www.mrcet.com
 ```
 
 
-#Backup commands
+# Backup commands
 tar -cvf backup.tar *
 ## OUTPUT
 ```
@@ -578,6 +589,7 @@ drwxr-xr-x user/group 0 2024-02-25 14:30:00 directory1/
 -rw-r--r-- user/group 1024 2024-02-25 14:30:00 directory1/file2.txt
 -rw-r--r-- user/group 2048 2024-02-25 14:30:00 directory1/file3.txt
 ```
+
 tar -xvf backup.tar
 ## OUTPUT
 ```
@@ -585,18 +597,19 @@ x file1.txt
 x directory1/
 x directory1/file2.txt
 x directory1/file3.txt
-```
 gzip backup.tar
+```
 
 ls .gz
 ## OUTPUT
 ```
-  backup.tar.gz
+ backup.tar.gz
 gunzip backup.tar.gz
 ```
 ## OUTPUT
+```
 backup.tar
- 
+ ```
 # Shell Script
 ```
 echo '#!/bin/sh' > my-script.sh
@@ -623,6 +636,7 @@ hello in this world
 i cant stop
 for this non stop movement
 ```
+
 cat < scriptest.sh 
 ```bash
 \#!/bin/sh
@@ -675,20 +689,16 @@ ls file1
 ## OUTPUT
 ```
 file1
-```
 echo $?
+```
 ## OUTPUT 
 ```
 0
-```
-./one
-bash: ./one: Permission denied
- 
+ ```
 echo $?
 ## OUTPUT 
 ```
-abcd
-
+ 
 abcd
  ```
 echo $?
@@ -696,6 +706,7 @@ echo $?
  ```
 1
 ```
+
  
 # mis-using string comparisons
 
@@ -729,13 +740,13 @@ fi
 ```
 val1=baseball
 val2=hockey
-```
 if [ $val1 \> $val2 ]
 then
 echo "$val1 is greater than $val2"
 else
 echo "$val1 is less than $val2"
 fi
+```
 
 chmod 755 strcomp.sh
  
@@ -744,7 +755,6 @@ chmod 755 strcomp.sh
 ```
 baseball is less than hockey
 ```
-
 # check file ownership
 cat < psswdperm.sh 
 ```bash
@@ -956,6 +966,7 @@ Special testing account
 gganesh, Do not forget to logout when you're done
 Sorry, you are not allowed here
 ```
+
 # testing compound comparisons
 cat> ifcompound.sh 
 ```bash
@@ -990,13 +1001,13 @@ esac
 $ chmod 755 casecheck.sh 
  
 $ ./casecheck.sh 
-## OUTPUT`
+## OUTPUT 
 ```
 Welcome Ram/Rahim
 Please enjoy your visit
 Special testing account
 gganesh, Do not forget to logout when you're done
-Sorry, you are not allowed here
+Sorry, you are not allowed here 
 ```
 cat > whiletest
 ```bash
@@ -1010,8 +1021,10 @@ var1=$[ $var1 - 1 ]
 done
 ```
 $ chmod 755 whiletest.sh
-## OUTPUT
-```
+ 
+$ ./whiletest.sh
+  ## OUTPUT
+  ```
  10
 9
 8
@@ -1022,9 +1035,7 @@ $ chmod 755 whiletest.sh
 3
 2
 1
-$ ./whiletest.sh
  ```
- 
 cat untiltest.sh 
 ```bash
 \#using the until command
@@ -1042,8 +1053,10 @@ $ ./ untiltest.sh
  100
  75
  50
- 25 
+ 25
  ```
+ 
+ 
 cat forin1.sh 
 ```bash
 \#!/bin/bash
@@ -1063,26 +1076,9 @@ The next state is Alaska
 The next state is Arizona
 The next state is Arkansas
 The next state is California
-The next state is Colorado
+The next state is Colorado 
  ```
-cat forin2.sh 
-```bash
-\#!/bin/bash
-\# another example of how not to use the for command
-for test in I don't know if this'll work
-do
-echo “word:$test”
-done
- ```
- 
-$ chmod 755 forin2.sh
-$ ./forin2.sh
-## OUTPUT
-```
-word:I
-word:dont know if thisll
-word:work
-```
+
 cat forin2.sh 
 ```bash
 \#!/bin/bash
@@ -1095,10 +1091,12 @@ done
 $ chmod 755 forin2.sh
  
 $ ./forin2.sh 
+## OUTPUT
+```
 word:I
 word:dont know if thisll
-word:work
- 
+word:work 
+```
 cat forin3.sh 
 ```bash
 \#!/bin/bash
@@ -1117,26 +1115,6 @@ word:know
 word:if
 word:this'll
 word:work
- ```
-cat forin1.sh 
-```bash
-#!/bin/bash
-# basic for command
-for test in Alabama Alaska Arizona Arkansas California Colorado
-do
-echo The next state is $test
-done
-```
-$ chmod 755 forin1.sh
-
-## OUTPUT
-```
-The next state is Alabama
-The next state is Alaska
-The next state is Arizona
-The next state is Arkansas
-The next state is California
-The next state is Colorado
 ```
 cat forinfile.sh 
 ```bash
@@ -1180,13 +1158,12 @@ done
 $ chmod 755 forctype.sh
 $ ./forctype.sh 
 ## OUTPUT
-```
 The value of i is 1
 The value of i is 2
 The value of i is 3
 The value of i is 4
 The value of i is 5
-```
+
 cat forctype1.sh 
 ```bash
 #!/bin/bash
@@ -1223,8 +1200,7 @@ $ ./fornested1.sh
 3 - 3
 4 - 2
 5 - 1
-```
- 
+ ```
 cat forbreak.sh 
 ```bash
 #!/bin/bash
@@ -1239,17 +1215,17 @@ echo "Iteration number: $var1"
 done
 echo "The for loop is completed“
 ```
+$ chmod 755 forbreak.sh
+ 
+$ ./forbreak.sh 
 ## OUTPUT
 ```
 Iteration number: 1
 Iteration number: 2
 The for loop is completed
 ```
-$ chmod 755 forbreak.sh
  
-$ ./forbreak.sh 
- 
-cat forbreak.sh 
+cat forcontinue.sh 
 ```bash
 #!/bin/bash
 # breaking out of a for loop
@@ -1275,7 +1251,7 @@ Iteration number: 2
 Iteration number: 4
 Iteration number: 5
 The for loop is completed
-```
+ ```
 cat exread.sh 
 ```bash
 #!/bin/bash
@@ -1293,7 +1269,6 @@ $ ./exread.sh
 Enter your name: John
 Hello John, welcome to my program.
 ```
-
  cat exread1.sh
 ```bash
 #!/bin/bash
@@ -1308,6 +1283,7 @@ $ chmod 755 exread1.sh
 Enter your name: sanju
 Hello sanju, welcome to my program.
 ```
+
 
 $ ./exread1.sh 
  
@@ -1328,12 +1304,12 @@ fi
 ```
 ## OUTPUT
 ```
-$ bash script.sh 1 2
-The result is 2
  ./funcex.sh 
 
  
  ./funcex.sh 1 2
+$ bash script.sh 1 2
+The result is 2
 ```
  
 cat argshift.sh
@@ -1351,9 +1327,8 @@ $ chmod 777 argshift.sh
 $ ./argshift.sh 1 2 3
 1
 2
-3
-$ ./argshift.sh 1 2 3
-``` 
+3 
+```
  cat argshift1.sh
 ```bash
  #/bin/bash 
@@ -1363,6 +1338,7 @@ args=("$@")
 ELEMENTS=${#args[@]} 
  # echo each element in array  
 # for loop 
+```
 for (( i=0;i<$ELEMENTS;i++)); do 
     echo ${args[${i}]} 
 done
@@ -1373,10 +1349,8 @@ $ chmod 777 argshift.sh
 $ ./argshift.sh 1 2 3
 1
 2
-3
-
-$ ./argshift.sh 1 2 3
-``` 
+3 
+```
 cat argshift.sh
 ```bash
 #!/bin/bash 
@@ -1389,12 +1363,11 @@ set +x
 ```
 ## OUTPUT
 ```
-+ (( 0 ))
-+ set +x
-
  ./argshift.sh 1 2 3
- 
+ + (( 0 ))
+ + set +x
  ```
+
 cat > nc.awk
 ```bash
 BEGIN{}
@@ -1425,11 +1398,11 @@ ubcdfghj
 awk -f nc.awk data.dat
 ## OUTPUT 
 ```
-total characters 75
+ total characters 75
 Number of Lines are 10
-No of Words count: 10
-```
+No of Words count: 10 
 cat > palindrome.sh
+```
 ```bash
 #num=545
 echo "Enter the number"
